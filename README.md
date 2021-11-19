@@ -115,32 +115,3 @@ git reset --hard [commit]
 NOTE: Those commits still exist, they are just not part of the commit history.
 
 If you run `reset --soft`, the commits you are trying to throw away will show up in the index (a.k.a. the stage).
-
-
-### Fetch vs Pull
-
-Concept of upstream and downstream
-
-Remember, your `integration` branch is downstream from our remote `integration` branch.
-
-How do we get the changes from our remote `integration` branch?
-
-`git fetch`
-
-So what is `git pull`?
-
-`git fetch` + `git merge`.
-
-This means, `git fetch` syncs your local `origin/integration` with the remote `integration` branch, then runs a `git merge` between local `origin/integration` and local `integration`. Every time you pull, you are triggering a merge.
-
-Example:
-
-Let's say you turn on your computer one day, checkout a branch, and run `git pull` which results in a merge conflict. What do you do?
-
-This most likely happens when...
-
-```
-git checkout -b [branch_name]_TEMP
-git branch -D [branch_name]
-git checkout [branch_name]
-```
